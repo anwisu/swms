@@ -21,6 +21,7 @@ export default function Trashbin() {
             try {
                 console.log('Fetching data...');
                 const response = await axios.get('http://192.168.1.47/test/api/fetch_sensor_data.php');
+                // 192.168.43.110
                 console.log('Data fetched:', response.data);
                 setData(response.data);
             } catch (error) {
@@ -39,7 +40,7 @@ export default function Trashbin() {
         return (
             <View style={styles.trashbin} key={binId}>
                 <Text style={styles.header}>
-                    <FontAwesome name="trash" size={24} color="#76c7c0" /> {`Trashbin ${binId.replace('trashbin', '')}`}
+                    <FontAwesome name="trash" size={30} color="#76c7c0" /> {`Trashbin ${binId.replace('trashbin', '')}`}
                 </Text>
                 <Text style={styles.location}>
                     <FontAwesome name="map-marker" size={20} color="#76c7c0" />{' '}
@@ -97,16 +98,17 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f8f9fa',
+        backgroundColor: '#a2d8af', // Changed to a softer green color
         padding: 20,
+        paddingTop: 60,
     },
     trashbin: {
         width: '100%',
         maxWidth: 400,
         padding: 20,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff', // Card background remains white
         borderRadius: 15,
-        shadowColor: '#000',
+        shadowColor: '#333', // Shadow color
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.3,
         shadowRadius: 4.65,
@@ -114,20 +116,20 @@ const styles = StyleSheet.create({
         marginBottom: 25,
     },
     header: {
-        fontSize: 22,
+        fontSize: 26,
         fontWeight: '600',
-        color: '#333',
+        color: '#333', // Text color
         marginBottom: 15,
     },
     location: {
-        fontSize: 16,
-        color: '#777',
+        fontSize: 18,
+        color: '#333', // Text color
         marginBottom: 20,
     },
     label: {
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: '500',
-        color: '#555',
+        color: '#333', // Text color
         marginBottom: 5,
     },
     progressBar: {
@@ -139,29 +141,29 @@ const styles = StyleSheet.create({
     },
     fill: {
         height: '100%',
-        backgroundColor: '#76c7c0',
+        backgroundColor: '#46B54C', // Progress bar fill color
         justifyContent: 'center',
         alignItems: 'center',
     },
     percentage: {
-        color: '#fff',
+        color: '#ffffff', // Text color
         fontWeight: 'bold',
     },
     status: {
         marginTop: 10,
     },
     statusMessage: {
-        fontSize: 14,
-        color: '#555',
+        fontSize: 16,
+        color: '#333', // Text color
         marginBottom: 5,
     },
     composition: {
         fontWeight: 'bold',
-        color: '#76c7c0',
+        color: '#46B54C', // Text color
     },
     errorText: {
         fontSize: 18,
-        color: 'red',
+        color: '#ff0000', // Error text color
         textAlign: 'center',
     },
 });

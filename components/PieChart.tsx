@@ -6,28 +6,28 @@ import axios from 'axios';
 const screenWidth = Dimensions.get('window').width;
 
 const chartConfig = {
-    backgroundGradientFrom: "#1E2923",
-    backgroundGradientFromOpacity: 0.5,
-    backgroundGradientTo: "#08130D",
-    backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // Change bar color to white for contrast
+    backgroundGradientFrom: "#a2d8af", // Softer green background color
+    backgroundGradientFromOpacity: 1,
+    backgroundGradientTo: "#a2d8af", // Softer green background color
+    backgroundGradientToOpacity: 1,
+    color: (opacity = 1) => `rgba(51, 51, 51, ${opacity})`, // Change bar color to dark text color for contrast
     strokeWidth: 2,
     barPercentage: 0.6,
     useShadowColorFromDataset: false,
     propsForLabels: {
         fontFamily: 'Roboto',
         fontSize: 12,
-        color: '#ffffff',
+        color: '#333', // Text color
     },
     propsForVerticalLabels: {
         fontFamily: 'Roboto',
         fontSize: 12,
-        color: '#ffffff',
+        color: '#333', // Text color
     },
     propsForBackgroundLines: {
         strokeDasharray: '', // Solid lines
         strokeWidth: 0.5,
-        color: '#ffffff',
+        color: '#333', // Text color
     },
 };
 
@@ -44,13 +44,14 @@ export default function PieChartScreen() {
 
     useEffect(() => {
         axios.get('http://192.168.1.47/test/api/fetch_items_per_bin.php')
+        // 192.168.43.110
             .then(response => {
                 const fetchedData = response.data.bins;
                 const formattedData = fetchedData.map((item: { bin_id: number, count: number }) => ({
                     name: `in Bin ${item.bin_id}`,
                     population: item.count,
-                    color: `#${Math.floor(Math.random()*16777215).toString(16)}`, // Random color for each bin
-                    legendFontColor: '#7F7F7F',
+                    color: getRandomGreenColor(), // Random color for each bin
+                    legendFontColor: '#333', // Text color
                     legendFontSize: 15
                 }));
 
@@ -60,6 +61,13 @@ export default function PieChartScreen() {
                 console.error("Error fetching data: ", error);
             });
     }, []);
+
+    function getRandomGreenColor() {
+        const greenShades = [
+            '#a2d8af', '#81c784', '#66bb6a', '#4caf50', '#388e3c', '#2e7d32', '#1b5e20'
+        ];
+        return greenShades[Math.floor(Math.random() * greenShades.length)];
+    }
 
     return (
         <View style={styles.container}>

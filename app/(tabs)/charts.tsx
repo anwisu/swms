@@ -27,18 +27,18 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f4f5f7',
+        backgroundColor: '#a2d8af', // Softer green background color
         padding: 20,
     },
     card: {
         width: '100%',
         maxWidth: 500,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#ffffff', // Card background remains white
         borderRadius: 20,
-        shadowColor: '#000',
+        shadowColor: '#333', // Shadow color
         shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
+        shadowOpacity: 0.3,
+        shadowRadius: 4.65,
         elevation: 8,
         overflow: 'hidden',  // Ensures content doesn't overflow the card
     },
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         fontSize: 26,
         fontWeight: 'bold',
+        color: '#333', // Text color
         marginBottom: 10,
     },
 });

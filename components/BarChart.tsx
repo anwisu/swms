@@ -6,29 +6,14 @@ import axios from 'axios';
 const screenWidth = Dimensions.get('window').width;
 
 const chartConfig = {
-    backgroundGradientFrom: "#1E2923",
-    backgroundGradientFromOpacity: 0.5,
-    backgroundGradientTo: "#08130D",
-    backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // Change bar color to white for contrast
+    backgroundGradientFrom: "#ffffff", 
+    backgroundGradientFromOpacity: 1,
+    backgroundGradientTo: "#ffffff", 
+    backgroundGradientToOpacity: 1,
+    color: (opacity = 1) => `rgba(29, 135, 35, ${opacity})`, // Change bar color to dark text color for contrast
     strokeWidth: 2,
     barPercentage: 0.6,
     useShadowColorFromDataset: false,
-    propsForLabels: {
-        fontFamily: 'Roboto',
-        fontSize: 12,
-        color: '#ffffff',
-    },
-    propsForVerticalLabels: {
-        fontFamily: 'Roboto',
-        fontSize: 12,
-        color: '#ffffff',
-    },
-    propsForBackgroundLines: {
-        strokeDasharray: '', // Solid lines
-        strokeWidth: 0.5,
-        color: '#ffffff',
-    },
 };
 
 type ChartData = {
@@ -48,6 +33,7 @@ export default function BarChartScreen() {
 
     useEffect(() => {
         axios.get('http://192.168.1.47/test/api/fetch_composition_data.php')
+        // 192.168.43.110
             .then(response => {
                 const fetchedData = response.data;
                 const labels = Object.keys(fetchedData);
