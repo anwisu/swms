@@ -24,11 +24,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="trashbin"
         options={{
-          title: 'Explore',
+          title: 'Trashbin',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'trash' : 'trash-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="charts"
+        options={{
+          title: 'Charts',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'bar-chart' : 'bar-chart-outline'} color={color} />
           ),
         }}
       />
