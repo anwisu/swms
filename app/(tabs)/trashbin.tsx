@@ -20,7 +20,7 @@ export default function Trashbin() {
         const fetchData = async () => {
             try {
                 console.log('Fetching data...');
-                const response = await axios.get('http://192.168.1.47/test/api/fetch_sensor_data.php');
+                const response = await axios.get('http://192.168.43.110/test/api/fetch_sensor_data.php');
                 // 192.168.43.110
                 console.log('Data fetched:', response.data);
                 setData(response.data);

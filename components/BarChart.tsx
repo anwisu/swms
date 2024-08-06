@@ -32,7 +32,7 @@ export default function BarChartScreen() {
     });
 
     useEffect(() => {
-        axios.get('http://192.168.1.47/test/api/fetch_composition_data.php')
+        axios.get('http://192.168.43.110/test/api/fetch_composition_data.php')
         // 192.168.43.110
             .then(response => {
                 const fetchedData = response.data;

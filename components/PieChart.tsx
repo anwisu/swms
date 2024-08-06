@@ -43,7 +43,7 @@ export default function PieChartScreen() {
     const [chartData, setChartData] = useState<PieChartData>([]);
 
     useEffect(() => {
-        axios.get('http://192.168.1.47/test/api/fetch_items_per_bin.php')
+        axios.get('http://192.168.43.110/test/api/fetch_items_per_bin.php')
         // 192.168.43.110
             .then(response => {
                 const fetchedData = response.data.bins;
